@@ -1,0 +1,7 @@
+# Request
+string entry_wormhole
+string new_map
+---
+# Reply
+bool success
+geometry_msgs/PoseWithCovarianceStamped estimated_pose

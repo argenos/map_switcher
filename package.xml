@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>map_switcher</name>
+  <version>0.0.1</version>
+  <description>The map_switcher package</description>
+
+  <maintainer email="argentina.ortega@h-brs.de">Argentina Ortega Sainz</maintainer>
+
+
+  <license>MIT</license>
+
+
+  <author email="argentina.ortega@h-brs.de">Argentina Ortega Sainz</author>
+
+
+    <depend>rospy</depend>
+    <depend>std_msgs</depend>
+    <depend>geometry_msgs</depend>
+    <build_depend>message_generation</build_depend>
+    <exec_depend>message_runtime</exec_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>genmsg</buildtool_depend>
+
+
+  <export>
+
+  </export>
+</package>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="config_file" default="$(find map_switcher)/config/config.yaml"/>
+
+    <node name="map_switcher" pkg="map_switcher" type="switch_maps" args="$(find map_switcher)/config/" output="screen">
+        <rosparam command="load" file="$(arg config_file)" />
+    </node>
+</launch>
