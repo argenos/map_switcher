@@ -1,4 +1,5 @@
 default_map: basement-full
+building: amk
 maps:
   - basement-full
   - ward_24
