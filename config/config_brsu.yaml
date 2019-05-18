@@ -1,16 +1,16 @@
-default_map: brsu-c-floor0_osm
+default_map: map_floor0
 building: brsu
 maps:
-  - brsu-c-floor0_osm
-  - brsu-c-floor2_osm
+  - map_floor0
+  - map_floor2
 wormholes:
   elevator_1:
     connected_locations:
-      brsu-c-floor0_osm:
+      map_floor0:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: 0
-      brsu-c-floor2_osm:
+      map_floor2:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: 2
