@@ -1,36 +1,36 @@
-default_map: basement-full
+default_map: map_floor-1
 building: amk
 maps:
-  - basement-full
-  - ward_24
+  - map_floor-1
+  - map_floor4
 wormholes:
   elevator_1:
     connected_locations:
-      basement-full:
+      map_floor-1:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: -1
-      ward_24:
+      map_floor4:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: 4
   elevator_2:
     connected_locations:
-      basement-full:
+      map_floor-1:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: -1
-      ward_24:
+      map_floor4:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: 4
   elevator_3:
     connected_locations:
-      basement-full:
+      map_floor-1:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: -1
-      ward_24:
+      map_floor4:
         position: [0.0 ,0.0]
         orientation: 0.0
         floor: 4
