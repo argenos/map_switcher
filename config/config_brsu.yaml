@@ -1,0 +1,16 @@
+default_map: map_floor0
+building: brsu
+maps:
+  - map_floor0
+  - map_floor2
+wormholes:
+  elevator_1:
+    connected_locations:
+      map_floor0:
+        position: [0.0 ,0.0]
+        orientation: 0.0
+        floor: 0
+      map_floor2:
+        position: [0.0 ,0.0]
+        orientation: 0.0
+        floor: 2

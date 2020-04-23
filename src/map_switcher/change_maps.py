@@ -1,3 +1,5 @@
+from os.path import join
+
 import rospy
 import roslaunch
 import rosnode
@@ -11,6 +13,7 @@ class MapSwitcher(object):
         self.map_dir = map_dir
         self.map_switcher_server = map_switcher_server
         self.default_map = rospy.get_param('~default_map', 'basement-full')
+        self.building_name = rospy.get_param('~building', 'amk')
         self.maps = rospy.get_param('~maps', '')
         self.wormholes = rospy.get_param('~wormholes', '')
 
@@ -22,7 +25,7 @@ class MapSwitcher(object):
         # Setup the package and executable we want to launch
         self.package = 'map_server'
         self.executable = 'map_server'
-        args = self.map_dir + self.default_map + "/map.yaml"
+        args = join(self.map_dir, self.building_name, self.default_map + "/map.yaml")
 
         # TODO Only launch the map_server if it's not already there
         # Also, we asume the name of the server is indeed map_server
@@ -55,11 +58,11 @@ class MapSwitcher(object):
         rosnode.kill_nodes('map_server')
         rospy.sleep(1)
 
-        map = req.new_map
+        map_name = req.new_map
         wormhole = req.entry_wormhole
 
         #TODO robustly handle directories /
-        args = self.map_dir + map + '/map.yaml'
+        args = join(self.map_dir, self.building_name, map_name + '/map.yaml')
 
         node = roslaunch.core.Node(self.package, self.executable, name='map_server', args=args)
 
@@ -67,11 +70,11 @@ class MapSwitcher(object):
 
         reply.success = True
 
-        reply.estimated_pose.pose.pose.position.x = self.wormholes[wormhole]['connected_locations'][map]['position'][0]
-        reply.estimated_pose.pose.pose.position.y = self.wormholes[wormhole]['connected_locations'][map]['position'][1]
+        reply.estimated_pose.pose.pose.position.x = self.wormholes[wormhole]['connected_locations'][map_name]['position'][0]
+        reply.estimated_pose.pose.pose.position.y = self.wormholes[wormhole]['connected_locations'][map_name]['position'][1]
         reply.estimated_pose.pose.pose.position.z = 0.0
 
-        orientation = tf.transformations.quaternion_from_euler(0.0, 0.0, self.wormholes[wormhole]['connected_locations'][map]['orientation'])
+        orientation = tf.transformations.quaternion_from_euler(0.0, 0.0, self.wormholes[wormhole]['connected_locations'][map_name]['orientation'])
         reply.estimated_pose.pose.pose.orientation.x = orientation[0]
         reply.estimated_pose.pose.pose.orientation.y = orientation[1]
         reply.estimated_pose.pose.pose.orientation.z = orientation[2]
